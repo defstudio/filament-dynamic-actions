@@ -1,29 +1,27 @@
 {
-    "name": ":vendor_slug/:package_slug",
-    "description": ":package_description",
+    "name": "defstudio/filament-dynamic-actions",
+    "description": "Dynamically disable or hide actions when form is dirty",
     "keywords": [
-        ":vendor_name",
+        "defstudio",
         "laravel",
-        ":package_slug"
+        "filament-dynamic-actions"
     ],
-    "homepage": "https://github.com/:vendor_slug/:package_slug",
+    "homepage": "https://github.com/defstudio/filament-dynamic-actions",
     "support": {
-        "issues": "https://github.com/:vendor_slug/:package_slug/issues",
-        "source": "https://github.com/:vendor_slug/:package_slug"
+        "issues": "https://github.com/defstudio/filament-dynamic-actions/issues",
+        "source": "https://github.com/defstudio/filament-dynamic-actions"
     },
     "license": "MIT",
     "authors": [
         {
-            "name": ":author_name",
-            "email": "author@domain.com",
+            "name": "Fabio Ivona",
+            "email": "fabio.ivona@defstudio.it",
             "role": "Developer"
         }
     ],
     "require": {
         "php": "^8.1",
         "filament/filament": "^3.0",
-        "filament/forms": "^3.0",
-        "filament/tables": "^3.0",
         "spatie/laravel-package-tools": "^1.15.0"
     },
     "require-dev": {
@@ -36,18 +34,11 @@
         "pestphp/pest-plugin-laravel": "^2.0",
         "phpstan/extension-installer": "^1.1",
         "phpstan/phpstan-deprecation-rules": "^1.0",
-        "phpstan/phpstan-phpunit": "^1.0",
-        "spatie/laravel-ray": "^1.26"
+        "phpstan/phpstan-phpunit": "^1.0"
     },
     "autoload": {
         "psr-4": {
-            "VendorName\\Skeleton\\": "src/",
-            "VendorName\\Skeleton\\Database\\Factories\\": "database/factories/"
-        }
-    },
-    "autoload-dev": {
-        "psr-4": {
-            "VendorName\\Skeleton\\Tests\\": "tests/"
+            "DefStudio\\FilamentDynamicActions\\": "src/"
         }
     },
     "scripts": {
@@ -67,11 +58,8 @@
     "extra": {
         "laravel": {
             "providers": [
-                "VendorName\\Skeleton\\SkeletonServiceProvider"
-            ],
-            "aliases": {
-                "Skeleton": "VendorName\\Skeleton\\Facades\\Skeleton"
-            }
+                "DefStudio\\FilamentDynamicActions\\FilamentDynamicActionsServiceProvider"
+            ]
         }
     },
     "minimum-stability": "dev",
