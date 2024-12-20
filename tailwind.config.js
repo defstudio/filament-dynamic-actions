@@ -1,6 +1,9 @@
 const preset = require('./vendor/filament/filament/tailwind.config.preset')
 
 module.exports = {
+    safelist: [
+        'disabled:opacity-50'
+    ],
     presets: [preset],
     content: [
         './app/Filament/**/*.php',

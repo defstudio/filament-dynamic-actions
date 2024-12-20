@@ -25,14 +25,10 @@ document.addEventListener('alpine:init', () => {
         hash(data) {
             data = JSON.parse(JSON.stringify(data))
 
-            console.debug('before', data)
-
             for (const ignored of this.ignoredPaths) {
                 const piecesToIgnore = ignored.split('.')
                 data = this.cleanData(data, piecesToIgnore)
             }
-
-            console.debug('after', data)
 
             return window.jsMd5(JSON.stringify(data).replace(/"/g, ''))
         },
@@ -43,8 +39,6 @@ document.addEventListener('alpine:init', () => {
             if(currentPiece === undefined){
                 return null;
             }
-
-            console.log(data, currentPiece, piecesToIgnore)
 
             if(currentPiece === '*'){
                 for (const dataKey in data) {

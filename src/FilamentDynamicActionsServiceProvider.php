@@ -5,6 +5,7 @@ namespace DefStudio\FilamentDynamicActions;
 use Closure;
 use Filament\Actions\Action;
 use Filament\Support\Assets\Asset;
+use Filament\Support\Assets\Css;
 use Filament\Support\Assets\Js;
 use Filament\Support\Facades\FilamentAsset;
 use Filament\Support\RawJs;
@@ -85,6 +86,7 @@ class FilamentDynamicActionsServiceProvider extends PackageServiceProvider
     {
         return [
             Js::make('filament-dynamic-actions-scripts', __DIR__ . '/../resources/dist/filament-dynamic-actions.js'),
+            Css::make('filament-dynamic-actions-styles', __DIR__ . '/../resources/dist/filament-dynamic-actions.css'),
         ];
     }
 
