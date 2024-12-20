@@ -2,32 +2,63 @@
 
 document.addEventListener('alpine:init', () => {
     Alpine.data('disabled_when_dirty_action', () => ({
-        saved_data: null,
-        init(){
-            this.saved_data = this.hash($wire.data);
+        savedDataHash: null,
+        ignoredPaths: [],
+        setup(ignoredPaths) {
+            this.ignoredPaths = ignoredPaths;
+            this.savedDataHash = this.hash(this.$wire.data);
 
             Livewire.hook('commit', ({commit, succeed}) => {
                 commit.calls.forEach(data => {
-                    if(data.method === 'save'){
+                    if (data.method === 'save') {
                         succeed(({effects}) => {
-                            if(effects.dispatches.filter(dispatched => dispatched.name === 'form-validation-error').length > 0){
+                            if (effects.dispatches.filter(dispatched => dispatched.name === 'form-validation-error').length > 0) {
                                 return;
                             }
 
-                            this.saved_data = this.hash($wire.data)
+                            this.savedDataHash = this.hash(this.$wire.data);
                         })
                     }
                 })
             })
         },
-        hash(data){
-            return JSON.stringify(data).replace('"', '')
+        hash(data) {
+            data = JSON.parse(JSON.stringify(data))
+
+            console.debug('before', data)
+
+            for (const ignored of this.ignoredPaths) {
+                const piecesToIgnore = ignored.split('.')
+                data = this.cleanData(data, piecesToIgnore)
+            }
+
+            console.debug('after', data)
+
+            return window.jsMd5(JSON.stringify(data).replace(/"/g, ''))
         },
-        changed(){
-            console.debug('saved', this.saved_data);
-            console.debug('current', this.hash($wire.data));
-            console.debug('changed', this.saved_data !== this.hash($wire.data))
-            return this.saved_data !== this.hash($wire.data)
+        cleanData(data, piecesToIgnore) {
+
+            const currentPiece = piecesToIgnore.shift()
+
+            if(currentPiece === undefined){
+                return null;
+            }
+
+            console.log(data, currentPiece, piecesToIgnore)
+
+            if(currentPiece === '*'){
+                for (const dataKey in data) {
+                    data[dataKey] =this.cleanData(data[dataKey], piecesToIgnore)
+                }
+
+                return data;
+            }
+
+            data[currentPiece] = this.cleanData(data[currentPiece], piecesToIgnore)
+            return data;
+        },
+        changed() {
+            return this.savedDataHash !== this.hash(this.$wire.data);
         }
     }))
 })

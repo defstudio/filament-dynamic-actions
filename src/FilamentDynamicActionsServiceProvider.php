@@ -2,6 +2,7 @@
 
 namespace DefStudio\FilamentDynamicActions;
 
+use Closure;
 use Filament\Actions\Action;
 use Filament\Support\Assets\Asset;
 use Filament\Support\Assets\Js;
@@ -50,16 +51,22 @@ class FilamentDynamicActionsServiceProvider extends PackageServiceProvider
         );
 
         Action::macro('disabledWhenDirty', function (
-            string $message = 'Sono presenti modifiche non salvate',
-            string $disabled_class = 'disabled:opacity-50',
-            array $ignored_fields = []
+            string | null | Closure $message = null,
+            string | Closure $disabledClass = 'disabled:opacity-50',
+            array | Closure $ignoredFields = []
         ): self {
             /** @var Action $this */
+            $message = $this->evaluate($message ?? __('dynamic_actions.changes_detected'));
+            $disabledClass = $this->evaluate($disabledClass);
+
+            $ignoredFields = \Illuminate\Support\Js::from($this->evaluate($ignoredFields));
+
             $this->extraAttributes([
-                'class' => $disabled_class,
+                'class' => $disabledClass,
                 'x-data' => 'disabled_when_dirty_action',
                 'x-bind:disabled' => RawJs::make('changed()'),
                 'x-bind:title' => RawJs::make("changed() ? '$message' : ''"),
+                'x-init' => RawJs::make("setup($ignoredFields)"),
             ], true);
 
             return $this;
