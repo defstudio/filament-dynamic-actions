@@ -21,7 +21,7 @@ class FilamentDynamicActionsServiceProvider extends PackageServiceProvider
     public function configurePackage(Package $package): void
     {
         $package->name(static::$name)
-            ->hasInstallCommand(function(InstallCommand $command) {
+            ->hasInstallCommand(function (InstallCommand $command) {
                 $command->publishConfigFile()
                     ->askToStarRepoOnGitHub('defstudio/filament-dynamic-actions');
             });
@@ -37,9 +37,7 @@ class FilamentDynamicActionsServiceProvider extends PackageServiceProvider
         }
     }
 
-    public function packageRegistered(): void
-    {
-    }
+    public function packageRegistered(): void {}
 
     public function packageBooted(): void
     {
@@ -54,10 +52,10 @@ class FilamentDynamicActionsServiceProvider extends PackageServiceProvider
             $this->getAssetPackageName()
         );
 
-        $handler = function(
-            string|null|Closure $message = null,
-            string|Closure $disabledClass = 'disabled:opacity-50',
-            array|Closure $ignoredFields = []
+        $handler = function (
+            string | null | Closure $message = null,
+            string | Closure $disabledClass = 'disabled:opacity-50',
+            array | Closure $ignoredFields = []
         ): self {
             /** @var Action $this */
             $message = $this->evaluate($message ?? __('dynamic_actions.changes_detected'));
@@ -91,8 +89,8 @@ class FilamentDynamicActionsServiceProvider extends PackageServiceProvider
     protected function getAssets(): array
     {
         return [
-            Js::make('filament-dynamic-actions-scripts', __DIR__.'/../resources/dist/filament-dynamic-actions.js'),
-            Css::make('filament-dynamic-actions-styles', __DIR__.'/../resources/dist/filament-dynamic-actions.css'),
+            Js::make('filament-dynamic-actions-scripts', __DIR__ . '/../resources/dist/filament-dynamic-actions.js'),
+            Css::make('filament-dynamic-actions-styles', __DIR__ . '/../resources/dist/filament-dynamic-actions.css'),
         ];
     }
 
