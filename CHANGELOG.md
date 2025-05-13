@@ -2,6 +2,15 @@
 
 All notable changes to `filament-dynamic-actions` will be documented in this file.
 
+## v0.0.5 - 2025-05-13
+
+### What's Changed
+
+* Bump dependabot/fetch-metadata from 2.3.0 to 2.4.0 by @dependabot in https://github.com/defstudio/filament-dynamic-actions/pull/4
+* Bump axios from 1.7.9 to 1.9.0 by @dependabot in https://github.com/defstudio/filament-dynamic-actions/pull/5
+
+**Full Changelog**: https://github.com/defstudio/filament-dynamic-actions/compare/v0.0.4...v0.0.5
+
 ## v0.0.4 - 2025-04-23
 
 ### What's Changed
