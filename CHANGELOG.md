@@ -2,6 +2,10 @@
 
 All notable changes to `filament-dynamic-actions` will be documented in this file.
 
+## v0.0.6 - 2025-06-10
+
+**Full Changelog**: https://github.com/defstudio/filament-dynamic-actions/compare/v0.0.5...v0.0.6
+
 ## v0.0.5 - 2025-05-13
 
 ### What's Changed
