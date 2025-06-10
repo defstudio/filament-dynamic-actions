@@ -101,6 +101,4 @@ class FilamentDynamicActionsServiceProvider extends PackageServiceProvider
     {
         return [];
     }
-
-
 }
