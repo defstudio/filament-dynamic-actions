@@ -3,8 +3,8 @@
 namespace DefStudio\FilamentDynamicActions;
 
 use Closure;
-use Filament\Actions\Action;
-use Filament\Actions\StaticAction;
+use Filament\Actions\Action as SimpleAction;
+use Filament\Forms\Components\Actions\Action as FormAction;
 use Filament\Support\Assets\Asset;
 use Filament\Support\Assets\Css;
 use Filament\Support\Assets\Js;
@@ -52,13 +52,13 @@ class FilamentDynamicActionsServiceProvider extends PackageServiceProvider
             $this->getAssetPackageName()
         );
 
-        $handler = function (
+        $macro = function (
             string | null | Closure $message = null,
             string | Closure $disabledClass = 'disabled:opacity-50',
             array | Closure $ignoredFields = []
         ): self {
             /** @var Action $this */
-            $message = $this->evaluate($message ?? __('dynamic_actions.changes_detected'));
+            $message = $this->evaluate($message ?? __('dynamic_actions::dynamic_actions.changes_detected'));
             $disabledClass = $this->evaluate($disabledClass);
 
             $ignoredFields = \Illuminate\Support\Js::from($this->evaluate($ignoredFields));
@@ -74,8 +74,8 @@ class FilamentDynamicActionsServiceProvider extends PackageServiceProvider
             return $this;
         };
 
-        Action::macro('disabledWhenDirty', $handler);
-        StaticAction::macro('disabledWhenDirty', $handler);
+        SimpleAction::macro('disabledWhenDirty', $macro);
+        FormAction::macro('disabledWhenDirty', $macro);
     }
 
     protected function getAssetPackageName(): ?string
@@ -101,4 +101,6 @@ class FilamentDynamicActionsServiceProvider extends PackageServiceProvider
     {
         return [];
     }
+
+
 }
