@@ -2,6 +2,14 @@
 
 All notable changes to `filament-dynamic-actions` will be documented in this file.
 
+## v0.0.7 - 2025-06-18
+
+### What's Changed
+
+* Bump stefanzweifel/git-auto-commit-action from 5 to 6 by @dependabot in https://github.com/defstudio/filament-dynamic-actions/pull/6
+
+**Full Changelog**: https://github.com/defstudio/filament-dynamic-actions/compare/v0.0.6...v0.0.7
+
 ## v0.0.6 - 2025-06-10
 
 **Full Changelog**: https://github.com/defstudio/filament-dynamic-actions/compare/v0.0.5...v0.0.6
