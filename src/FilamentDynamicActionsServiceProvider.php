@@ -58,7 +58,7 @@ class FilamentDynamicActionsServiceProvider extends PackageServiceProvider
             array | Closure $ignoredFields = []
         ): self {
             /** @var Action $this */
-            $message = $this->evaluate($message ?? __('dynamic_actions::dynamic_actions.changes_detected'));
+            $message = $this->evaluate($message ?? __('filament-dynamic-actions::dynamic_actions.changes_detected'));
             $disabledClass = $this->evaluate($disabledClass);
 
             $ignoredFields = \Illuminate\Support\Js::from($this->evaluate($ignoredFields));
