@@ -3,8 +3,7 @@
 namespace DefStudio\FilamentDynamicActions;
 
 use Closure;
-use Filament\Actions\Action as SimpleAction;
-use Filament\Forms\Components\Actions\Action as FormAction;
+use Filament\Actions\Action;
 use Filament\Support\Assets\Asset;
 use Filament\Support\Assets\Css;
 use Filament\Support\Assets\Js;
@@ -52,7 +51,7 @@ class FilamentDynamicActionsServiceProvider extends PackageServiceProvider
             $this->getAssetPackageName()
         );
 
-        $macro = function (
+        Action::macro('disabledWhenDirty', function (
             string | null | Closure $message = null,
             string | Closure $disabledClass = 'disabled:opacity-50',
             array | Closure $ignoredFields = []
@@ -72,10 +71,7 @@ class FilamentDynamicActionsServiceProvider extends PackageServiceProvider
             ], true);
 
             return $this;
-        };
-
-        SimpleAction::macro('disabledWhenDirty', $macro);
-        FormAction::macro('disabledWhenDirty', $macro);
+        });
     }
 
     protected function getAssetPackageName(): ?string
