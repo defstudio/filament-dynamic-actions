@@ -2,6 +2,16 @@
 
 All notable changes to `filament-dynamic-actions` will be documented in this file.
 
+## v4.0.0 - 2025-08-18
+
+### What's Changed
+
+* Bump form-data from 4.0.1 to 4.0.4 by @dependabot[bot] in https://github.com/defstudio/filament-dynamic-actions/pull/7
+* Bump aglipanci/laravel-pint-action from 2.5 to 2.6 by @dependabot[bot] in https://github.com/defstudio/filament-dynamic-actions/pull/8
+* Bump actions/checkout from 4 to 5 by @dependabot[bot] in https://github.com/defstudio/filament-dynamic-actions/pull/9
+
+**Full Changelog**: https://github.com/defstudio/filament-dynamic-actions/compare/v0.0.7...v4.0.0
+
 ## v0.0.7 - 2025-06-18
 
 ### What's Changed
