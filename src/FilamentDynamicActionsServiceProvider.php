@@ -86,7 +86,6 @@ class FilamentDynamicActionsServiceProvider extends PackageServiceProvider
     {
         return [
             Js::make('filament-dynamic-actions-scripts', __DIR__ . '/../resources/dist/filament-dynamic-actions.js'),
-            Css::make('filament-dynamic-actions-styles', __DIR__ . '/../resources/dist/filament-dynamic-actions.css'),
         ];
     }
 
