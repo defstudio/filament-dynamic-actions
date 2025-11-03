@@ -63,6 +63,7 @@ class FilamentDynamicActionsServiceProvider extends PackageServiceProvider
 
             $this->extraAttributes([
                 'class' => $disabledClass,
+                'style' => 'pointer-events: auto;',
                 'x-data' => 'disabled_when_dirty_action',
                 'x-bind:disabled' => RawJs::make('changed()'),
                 'x-bind:title' => RawJs::make("changed() ? '$message' : ''"),
