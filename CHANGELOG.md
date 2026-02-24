@@ -2,6 +2,15 @@
 
 All notable changes to `filament-dynamic-actions` will be documented in this file.
 
+## v4.0.4 - 2026-02-24
+
+### What's Changed
+
+* Bump actions/checkout from 5 to 6 by @dependabot[bot] in https://github.com/defstudio/filament-dynamic-actions/pull/11
+* Bump dependabot/fetch-metadata from 2.4.0 to 2.5.0 by @dependabot[bot] in https://github.com/defstudio/filament-dynamic-actions/pull/12
+
+**Full Changelog**: https://github.com/defstudio/filament-dynamic-actions/compare/v4.0.3...v4.0.4
+
 ## v4.0.3 - 2025-11-03
 
 **Full Changelog**: https://github.com/defstudio/filament-dynamic-actions/compare/v4.0.2...v4.0.3
