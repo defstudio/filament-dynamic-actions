@@ -2,6 +2,18 @@
 
 All notable changes to `filament-dynamic-actions` will be documented in this file.
 
+## v4.0.5 - 2026-03-16
+
+### What's Changed
+
+* tests by @MarioGattolla in https://github.com/defstudio/filament-dynamic-actions/pull/13
+
+### New Contributors
+
+* @MarioGattolla made their first contribution in https://github.com/defstudio/filament-dynamic-actions/pull/13
+
+**Full Changelog**: https://github.com/defstudio/filament-dynamic-actions/compare/v4.0.4...v4.0.5
+
 ## v4.0.4 - 2026-02-24
 
 ### What's Changed
