@@ -11,6 +11,11 @@
         "issues": "https://github.com/defstudio/filament-dynamic-actions/issues",
         "source": "https://github.com/defstudio/filament-dynamic-actions"
     },
+    "autoload-dev": {
+        "psr-4": {
+            "DefStudio\\FilamentDynamicActions\\Tests\\": "tests/"
+        }
+    },
     "license": "MIT",
     "authors": [
         {
